@@ -1,0 +1,31 @@
+extends layout
+
+block content
+	.container-fluid
+		.row-fluid
+			.span12
+				p(ng-bind-template='Google Phone Gallery: "{{query}}" and orderded "{{orderProp}}"') Google Phone Gallery
+		.row-fluid
+			.span2
+				| Search: <input ng-model="query">
+				| Sort by
+				select(ng-model='orderProp')
+					option(value='name') Alphabetical
+					option(value='age') Newest
+					option(value='-age') Oldest
+
+			.span10
+				ul
+					li.thumbnail(ng-repeat='phone in phones | filter:query | orderBy:orderProp')
+						a.thumb(href='#/phones/{{phone.id}}')
+							img(ng-src='{{phone.imageUrl}}')
+						a(href='#/phones/{{phone.id}}') {{phone.name}}
+						p {{phone.snippet}}
+
+		.row-fluid
+			.span12
+				p Total number of phones: {{phones.length}}
+
+
+append scripts
+	script(src='/javascripts/libs/requirejs/require.js', data-main='/javascripts/main')
