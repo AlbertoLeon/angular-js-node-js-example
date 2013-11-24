@@ -12,5 +12,6 @@ logs
 results
 
 phonecat
+public/javascripts
 npm-debug.log
 node_modules

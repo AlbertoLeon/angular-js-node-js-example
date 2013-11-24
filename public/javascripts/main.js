@@ -13,7 +13,7 @@ requirejs.config({
 		  'exports': 'angular'
     },
     'angular-route': {
-      'deps': 'angular'
+      'deps': ['angular']
     }
   }
 });
