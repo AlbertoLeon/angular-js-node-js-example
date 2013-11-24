@@ -4,8 +4,9 @@ requirejs.config({
     
     'angular': 'libs/angular/angular',
     'angular-route': 'libs/angular-route/angular-route',
-    'config': 'app/config',
-    'controllers': 'app/controllers'
+    'app': 'app/app',
+    'controllers': 'app/controllers',
+    'angular-toolkit': 'app/angular-toolkit'
 
   },
   'shim': {
@@ -18,6 +19,6 @@ requirejs.config({
   }
 });
 
-require(['angular', 'config', 'controllers'], function(angular) {
+require(['app'], function(angular) {
 	console.log('done requirejs loading', angular);
 });
